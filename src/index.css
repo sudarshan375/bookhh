@@ -422,7 +422,7 @@ button.reply-comment-btn:hover {
     text-align: center;
   }
   .media .media-right h5 {
-    font-size: 12px;
+    font-size: 15px;
     color: #000000e6;
   }
   .media .media-right p{
@@ -484,7 +484,7 @@ h1{
   }
 
   .full-comment-community-box .media a {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .d-flex.unlike-btn {
