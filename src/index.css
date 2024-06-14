@@ -7,6 +7,9 @@
   margin-bottom: 10px;
 }
 
+.container{
+  margin-top: 120px;
+}
 .media .media-right {
   padding-left: 16px;
 }
@@ -17,12 +20,12 @@
   background-color: blue;
 }
 
-.img-fluid{
+/* .img-fluid{
   width: 29vw;
   height: 35vw;
-}
+} */
 .media .media-right h5 {
-  font-size: 22px;
+
   color: #000000e6;
 }
 
@@ -285,8 +288,14 @@ a.reply-anchor:hover {
   margin-right: 4px;
 }
 
-#text-comment,
+
 #text-comment1 {
+  padding: 16px;
+  border: 1px solid #000000bf;
+  border-radius: 8px;
+  margin-top: 18px;
+}
+.text-comment{
   padding: 16px;
   border: 1px solid #000000bf;
   border-radius: 8px;
@@ -303,13 +312,27 @@ a.reply-anchor:hover {
   font-size: 19px;
   color: #000000e6;
 }
+.text-comment textarea{
+  width: 100%;
+  border: none;
+  height: 145px;
+  outline: 0;
+  resize: none;
+  font-size: 19px;
+  color: #000000e6;
+}
 
-#text-comment:hover,
-#text-comment:focus,
-#text-comment:focus-visible,
+
 #text-comment1:hover,
 #text-comment1:focus,
 #text-comment1:focus-visible {
+  outline: 1px solid;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+.text-comment:hover,
+.text-comment:focus,
+.text-comment:focus-visible{
   outline: 1px solid;
   line-height: 1.5;
   letter-spacing: 0.3px;

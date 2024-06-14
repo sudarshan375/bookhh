@@ -20,15 +20,12 @@ const Article = () => {
             fullCommentRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
-    const [count, setCount] = useState(0);
+
     const [count1, setCount1] = useState(0);
-    const [liked, setLiked] = useState(false);
+
     const [liked1, setLiked1] = useState(false);
 
-    const handleLikeClick = () => {
-        setCount(count + 1);
-        setLiked(true);
-    };
+
     const handleLikeClick1 = () => {
         setCount1(count1 + 1);
         setLiked1(true);
@@ -43,9 +40,11 @@ const Article = () => {
 
     return (
         <div>
-            <Container style={{ marginTop: '120px' }}>
+     
+<Container>
 
-                <div className=" mt-5 mb-5 ">
+
+                <div className="container mt-5 mb-5 ">
                     <div className="row">
                         <div className="col-lg-5 col-md-12 col-sm-12">
                             <div className="left-side-book">
@@ -91,7 +90,8 @@ const Article = () => {
                                                     <div className="view-and-reply d-flex flex-row">
                                                         <button onClick={() => handleScrollToUserTitle('user2')}>View contribution and reply</button>
                                                         <div className="d-flex reaction-buttons">
-
+                                                            <img src="like.PNG" alt="image" />
+                                                            <img src="bulb.PNG" alt="image" />
                                                             <span className="like-count">4</span>
                                                         </div>
                                                     </div>
@@ -117,7 +117,8 @@ const Article = () => {
                                                     <div className="view-and-reply d-flex flex-row">
                                                         <button onClick={() => handleScrollToUserTitle('user1')}>View contribution and reply</button>
                                                         <div className="d-flex reaction-buttons">
-                                                            <img src="like.PNG" alt="Like" />
+                                                            <img src="like.PNG" alt="Like" /> 
+                                                            <img src="bulb.PNG" alt="image"/>
                                                             <span className="like-count">3</span>
                                                         </div>
                                                     </div>
@@ -195,27 +196,12 @@ const Article = () => {
                                                         </button>
                                                     </p>
                                                 </div>
-                                                <div className="like-unlike d-flex flex-row">
-                                                    <div className="d-flex like-btn">
-                                                        <a href="#" className="like-anchor" onClick={handleLikeClick}>
-                                                            <i className={`fa-regular fa-thumbs-up ${liked ? 'liked' : ''}`}></i>
-                                                            <span className="like-hit-btn">Like</span>
-                                                        <span className="like-count ">{count}</span>
-                                                        </a>
-                                                    </div>
-                                                   
-                                                    <div className="d-flex reply-comment">
 
-                                                    </div>
-                                                    <Form />
-                                                </div>
-                                                <div id="text-comment" className="collapse">
-                                                    <textarea placeholder="Reply to this contribution"></textarea>
-                                                    <div className="d-flex align-content-center justify-content-end gap-2">
-                                                        <button className="cancel-reply-btn"> Cancel </button>
-                                                        <button className="reply-comment-btn"> Reply </button>
-                                                    </div>
-                                                </div>
+
+                                                <Form formId="1" />
+
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -245,35 +231,8 @@ const Article = () => {
                                                         {/* <button onClick={myFunction} id="myseemoreBtn">see more</button> */}
                                                     </p>
                                                 </div>
-                                                <div className="like-unlike d-flex flex-row">
-                                                    <div className="d-flex like-btn">
-                                                        <a href="#" className="like-anchor" onClick={handleLikeClick1}>
-                                                            <i className={`fa-regular fa-thumbs-up ${liked1 ? 'liked1' : ''}`}></i>
-                                                            <span className="like-hit-btn">Like</span>
-                                                        </a>
-                                                    </div>
-                                                    <div className="d-flex reaction-buttons">
-                                                        <a href="#">
-                                                            <img src="like.PNG" alt="Like" />
-                                                            <img src="bulb.PNG" alt="Bulb" />
-                                                        </a>
-                                                        <span className="like-count">{count1}</span>
-                                                    </div>
+                                                <Form formId="2" />
 
-                                                    <div className="d-flex reply-comment">
-                                                        <a href="#text-comment1" className="reply-anchor" data-bs-toggle="collapse">
-                                                            <i className='far fa-comment-dots'></i>
-                                                            <span className="reply-btn">Reply</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div id="text-comment1" className="collapse">
-                                                    <textarea placeholder="Reply to this contribution"></textarea>
-                                                    <div className="d-flex align-content-center justify-content-end gap-2">
-                                                        <button className="cancel-reply-btn"> Cancel </button>
-                                                        <button className="reply-comment-btn"> Reply </button>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -288,7 +247,7 @@ const Article = () => {
                         </div>
                     </div>
                 </div>
-            </Container>
+                </Container>
         </div>
     );
 }
