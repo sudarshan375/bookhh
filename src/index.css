@@ -207,7 +207,7 @@ p {
 .unlike-btn .fa-thumbs-down,
 .unlike-hit-btn,
 .d-flex.reply-comment .fa-comment-dots,
-.reply-comment .reply-btn {
+.reply-comment {
   color: #000000bf;
   font-weight: 500;
 }
@@ -222,6 +222,13 @@ a.unlike-anchor,
 .reply-anchor {
   padding: 8px 8px;
   border-radius: 2px;
+}
+.far{
+  margin-right: 6px;
+}
+.reply-btn{
+  color: black;
+  font-weight: 500;
 }
 
 a.like-anchor:hover,
