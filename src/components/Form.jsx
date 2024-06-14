@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-function Form() {
-    const [replyText, setReplyText] = useState('');
+function Form({ formId }) {
     const [replies, setReplies] = useState([]);
+    const [replyText, setReplyText] = useState('');
+    const [liked, setLiked] = useState(false);
+    const [count, setCount] = useState(0);
 
     const handleReplyChange = (event) => {
         setReplyText(event.target.value);
@@ -17,37 +18,62 @@ function Form() {
             setReplyText('');
         }
     };
-    return (
-        <div>
-            <div >
-                <a href="#text-comment1" className="reply-anchor" data-bs-toggle="collapse">
-                    <i className="far fa-comment-dots"></i>
-                    <span className="reply-btn">Reply</span>
-                </a>
-                <span className="reply-count">{replies.length}</span>
-            </div>
-            
-            <div id="text-comment1" className="collapse">
-                <textarea
-                    placeholder="Reply to this contribution"
-                    value={replyText}
-                    onChange={handleReplyChange}
-                />
-                <div className="d-flex align-content-center justify-content-end gap-2">
-                    <button className="cancel-reply-btn">Cancel</button>
-                    <button className="reply-comment-btn" onClick={handleReplySubmit}>Reply</button>
-                </div>
-            </div>
-            {replies.length > 0 && (
-                <div className="replies-container">
-                    <h4>Replies:</h4>
-                    {replies.map((reply, index) => (
-                        <div key={index} className="reply-item">{reply}</div>
-                    ))}
-                </div>
-            )}
-        </div>
 
+    const handleLikeClick = () => {
+        setCount(count + 1);
+        setLiked(true);
+    };
+    const handleCancelReply = () => {
+        setReplyText('');
+    };
+
+
+    return (
+        <>
+            <div className="like-unlike d-flex flex-row">
+                <div className="d-flex like-btn">
+                    <a href="#" className="like-anchor" onClick={handleLikeClick}>
+                        <i className={`fa-regular fa-thumbs-up ${liked ? 'liked' : ''}`}></i>
+                        <span className="like-hit-btn">Like</span>
+                    </a>
+                        <div class="d-flex reaction-buttons">
+                            <img src="like.PNG" alt="image" />
+                        <span className="like-count ">{count}</span>
+                        </div>
+                </div>
+                <div>
+                    <div>
+                        <span className="reply-count">{replies.length}</span>
+                        <a href={`#text-comment-${formId}`} className="reply-anchor" data-bs-toggle="collapse">
+                            <i className="far fa-comment-dots"></i>
+                            <span className="reply-btn">Reply</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className=" reply-comment">
+                <div id={`text-comment-${formId}`} className="collapse text-comment">
+                    <textarea
+                        placeholder="Reply to this contribution"
+                        value={replyText}
+                        onChange={handleReplyChange}
+                    />
+                    <div className="d-flex align-content-center justify-content-end gap-2">
+                        <button className="cancel-reply-btn" onClick={handleCancelReply}>Cancel</button>
+                        <button className="reply-comment-btn" onClick={handleReplySubmit}>Reply</button>
+                    </div>
+                </div>
+                {replies.length > 0 && (
+                    <div className="replies-container">
+                        <h6>Replies:</h6>
+                        {replies.map((reply, index) => (
+                            <div key={index} className="reply-item">{reply}</div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </>
     );
 }
 
